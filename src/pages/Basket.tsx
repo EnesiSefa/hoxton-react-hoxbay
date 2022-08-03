@@ -1,5 +1,9 @@
-export default function Basket (){
+export function Basket () {
     return (
+      <div>
+        <h1>Basket page!</h1>
+  
         
+      </div>
     )
-}
+  }

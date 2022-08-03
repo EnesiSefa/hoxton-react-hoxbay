@@ -4,13 +4,10 @@ import { Link } from "react-router-dom";
 type StoreItem = {
   id: number;
   title: string;
-  price: number;
-  description: string;
-  categoryId: number;
   image: string;
 };
 
-export  function Home() {
+export function Store() {
   const [products, setProducts] = useState<StoreItem[]>([]);
 
   useEffect(() => {
@@ -20,10 +17,12 @@ export  function Home() {
   }, []);
 
   return (
-    <div className="products-container">
-      <ul className="products-container__list">
+    <div>
+    
+
+      <ul className="store-list">
         {products.map((item) => (
-          <li className="product-item">
+          <li className="store-item">
             <Link to={`/products/${item.id}`}>
               <img src={item.image} />
               <p>{item.title}</p>

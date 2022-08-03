@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { getRandomColor } from "../helpers";
 
 function Header() {
@@ -16,16 +17,16 @@ function Header() {
       <nav className="header__nav">
         <ul>
           <li>
-            <a href="#"> Home</a>{/* Create here a link to this page */}
+          <Link to='/home'>Home</Link>{/* Create here a link to this page */}
             
           </li>
           <li>
             {/* Create here a link to this page */}
-           <a href="#">Categories</a> 
+            <Link to='/categories'>Categories</Link>
           </li>
           <li>
             {/* Create here a link to this page */}
-            <a href="#">basket</a>
+            <Link to='/basket'>Basket</Link>
           </li>
         </ul>
       </nav>
