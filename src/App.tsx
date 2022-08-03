@@ -6,6 +6,7 @@ import { Basket } from "./pages/Basket";
 import { Home } from "./pages/home";
 import { Categories } from "./pages/Categories";
 import { PageNotFound } from "./pages/PageNotFound";
+import ProductDetails from "./pages/ProductDetails";
 
 
 
@@ -24,9 +25,10 @@ function App() {
       <Routes>
       <Route index element={<Navigate to='/home' />} />
         {/* Only show up on the right url */}
-        <Route path="/home" element={<Home />} />
+        <Route path="/home/" element={<Home />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/productDetails/id" element={<ProductDetails />} />
         
 
         <Route path="*" element={<PageNotFound />} />

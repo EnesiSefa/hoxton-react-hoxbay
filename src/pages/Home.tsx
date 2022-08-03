@@ -1,5 +1,7 @@
+import {useParams} from 'react-router-dom'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { ProductList } from "../components/ProductList";
 
 type StoreItem = {
   id: number;
@@ -12,6 +14,8 @@ type StoreItem = {
 
 export  function Home() {
   const [products, setProducts] = useState<StoreItem[]>([]);
+  const params = useParams()
+  
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
@@ -20,17 +24,22 @@ export  function Home() {
   }, []);
 
   return (
-    <div className="products-container">
+    <div className="products-container" >
       <ul className="products-container__list">
-        {products.map((item) => (
-          <li className="product-item">
-            <Link to={`/products/${item.id}`}>
-              <img src={item.image} />
-              <p>{item.title}</p>
-            </Link>
-          </li>
-        ))}
+      <ProductList products ={products} onClick={()=>{
+        
+      }}/>
       </ul>
     </div>
   );
 }
+
+
+// {products.map((item) => (
+//   <li className="product-item" >
+//     <Link to={`/products/${item.id}`}>
+//       <img src={item.image} />
+//       <p>{item.title}</p>
+//     </Link>
+//   </li>
+// ))}

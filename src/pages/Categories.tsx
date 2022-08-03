@@ -19,7 +19,7 @@ export function Categories() {
     <div className="categories-container">
       <ul className="categories-container__list">
         {categories.map((item) => (
-          <li className="categories-item">
+          <li >
             <Link to={`/products/${item.id}`}>
               <h1>{item.name}</h1>
             </Link>
