@@ -11,9 +11,10 @@ type StoreItem = {
   categoryId: number;
   image: string;
 };
+type Props = StoreItem[]
 
 export function Home() {
-  const [products, setProducts] = useState<StoreItem[]>([]);
+  const [products, setProducts] = useState<Props>([]);
   const params = useParams();
 
   useEffect(() => {
@@ -25,8 +26,8 @@ export function Home() {
   return (
     <div className="products-container">
       <ul className="products-container__list">
-        {products.map((items) => (
-          <ProductList products={items} />
+        {products.map((product) => (
+          <ProductList key ={product.id} products={product} />
         ))}
       </ul>
     </div>

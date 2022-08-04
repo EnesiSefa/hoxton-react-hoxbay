@@ -8,8 +8,9 @@ type StoreItem = {
   categoryId: number;
   image: string;
 };
+type Props = StoreItem[]
 
-export function ProductList({ products }: StoreItem) {
+export function ProductList({ products }: Props) {
   return (
     <li className="product-container__list">
       <Link to={`/products/${products.id}`}>
