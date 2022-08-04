@@ -25,14 +25,11 @@ export default function ProductDetails() {
         <h1>Loading...</h1>
       </>
     );
-  if (item === undefined) return <Navigate to={"/products"} />;
+  if (item === undefined) return <Navigate to={"/home"} />;
   return (
     <>
       <div className="product-detail">
-        <img src="" alt="" />
-      </div>
-      <div className="product-detail__side">
-        {" "}
+        <img src={item.image} alt={item.title} />
         <h2>{item.title}</h2>
         <p>{item.description}</p>
         <span>{item.price}</span>

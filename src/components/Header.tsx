@@ -17,15 +17,15 @@ function Header() {
       <nav className="header__nav">
         <ul>
           <li>
-          <Link to='/home'>Home</Link>{/* Create here a link to this page */}
+          <Link to='/home'>Home</Link>
             
           </li>
           <li>
-            {/* Create here a link to this page */}
+            
             <Link to='/categories'>Categories</Link>
           </li>
           <li>
-            {/* Create here a link to this page */}
+            
             <Link to='/basket'>Basket</Link>
           </li>
         </ul>
