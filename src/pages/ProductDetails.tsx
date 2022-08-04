@@ -30,10 +30,12 @@ export default function ProductDetails() {
     <>
       <div className="product-detail">
         <img src={item.image} alt={item.title} />
-        <h2>{item.title}</h2>
-        <p>{item.description}</p>
-        <span>{item.price}</span>
-        <button>Add to basket</button>
+        <div className="product-detail__side ">
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+          <span>{item.price}</span>
+          <button>Add to basket</button>
+        </div>
       </div>
     </>
   );
