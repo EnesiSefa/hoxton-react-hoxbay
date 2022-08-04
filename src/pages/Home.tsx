@@ -1,7 +1,6 @@
-import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ProductList } from "../components/ProductList";
+
 
 type StoreItem = {
   id: number;
@@ -13,24 +12,29 @@ type StoreItem = {
 };
 type Props = StoreItem[]
 
+
 export function Home() {
-  const [products, setProducts] = useState<Props>([]);
-  const params = useParams();
+  const [products, setProducts] = useState<Props>([])
+   
 
   useEffect(() => {
     fetch("http://localhost:4000/products")
       .then((response) => response.json())
-      .then((productsFromServer) => setProducts(productsFromServer));
-  }, []);
-
+      .then((productsFromServer) => setProducts(productsFromServer))
+  }, [])
+  
   return (
-    <div className="products-container">
-      <ul className="products-container__list">
-        {products.map((product) => (
-          <ProductList key ={product.id} products={product} />
-        ))}
-      </ul>
-    </div>
+    
+      <div className="products-container">
+        <ul className="products-container__list">
+        {products.map(product =>(<li className="product-container__list">
+      <Link to={`/products/${product.id}`}>
+       <img src={product.image} />
+       <p>{product.title}</p>
+      </Link></li>))}
+        </ul>
+      </div>
+    
   );
 }
 

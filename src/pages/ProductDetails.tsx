@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 type StoreItem = {
   id: number;
   title: string;
@@ -10,7 +10,7 @@ type StoreItem = {
 };
 
 export default function ProductDetails() {
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState<StoreItem | null>(null);
   const params = useParams();
 
   useEffect(() => {
@@ -18,6 +18,14 @@ export default function ProductDetails() {
       .then((Response) => Response.json())
       .then((itemsFromServer) => setItem(itemsFromServer));
   }, []);
+
+  if (item === null)
+    return (
+      <>
+        <h1>Loading...</h1>
+      </>
+    );
+  if (item === undefined) return <Navigate to={"/products"} />;
   return (
     <>
       <div className="product-detail">
@@ -25,9 +33,9 @@ export default function ProductDetails() {
       </div>
       <div className="product-detail__side">
         {" "}
-        <h2>{params.title}</h2>
-        <p></p>
-        <span></span>
+        <h2>{item.title}</h2>
+        <p>{item.description}</p>
+        <span>{item.price}</span>
         <button>Add to basket</button>
       </div>
     </>
