@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router-dom";
 
 type StoreItem = {
   id: number;
@@ -14,13 +14,15 @@ type Props = StoreItem[];
 
 export default function CategoriesDetails () {
   const [products, setProducts] = useState<Props>([]);
-  const params = useParams();
+ 
 
   useEffect(() => {
-    fetch(`http://localhost:4000/products/${params.categoryId}`)
+    fetch(`http://localhost:4000/products/`)
       .then((response) => response.json())
       .then((productsFromServer) => setProducts(productsFromServer));
   }, []);
+  
+
 
   return (
     <div className="products-container">
