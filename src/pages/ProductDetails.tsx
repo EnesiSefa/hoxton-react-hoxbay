@@ -33,8 +33,8 @@ export default function ProductDetails() {
         <div className="product-detail__side ">
           <h2>{item.title}</h2>
           <p>{item.description}</p>
-          <span>{item.price}</span>
-          <button>Add to basket</button>
+          <span>{item.price} $</span>
+          <button onClick={()=>{}}>Add to basket</button>
         </div>
       </div>
     </>

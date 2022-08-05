@@ -20,7 +20,7 @@ export function Categories() {
       <ul className="categories-container__list">
         {categories.map((item) => (
           <li >
-            <Link to={`/products/${item.id}`}>
+            <Link to={`/categories/${item.id}`}>
               <h1>{item.name}</h1>
             </Link>
           </li>

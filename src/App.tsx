@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import { Categories } from "./pages/Categories";
 import { PageNotFound } from "./pages/PageNotFound";
 import ProductDetails from "./pages/ProductDetails";
+import CategoriesDetails from "./pages/CategoriesDetails";
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/products/:id" element={<ProductDetails />} />
         <Route path="/basket" element={<Basket />} />
         <Route path="/categories" element={<Categories />} />
+        <Route path="/categories/:Id" element={<CategoriesDetails />} />
         
 
         <Route path="*" element={<PageNotFound />} />
